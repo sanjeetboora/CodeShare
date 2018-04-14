@@ -37,7 +37,7 @@ router.route('/contact')
 		else{
 			var mailOptions={
 				from : 'Code4Share < no-reply@Code4Share.com >',
-				to : 'your email',
+				to : 'Your email',
 				subject : 'You got a new message from a visitor ✌️',
 				text : req.body.message
 			};
@@ -51,4 +51,14 @@ router.route('/contact')
 			});
 		}
 	});
+router.get('/login', function(req, res, next) {
+    res.render('login', {
+        title: 'Login'
+    });
+});
+router.get('/register', function(req, res, next) {
+    res.render('register', {
+        title: 'Register'
+    });
+});
 module.exports = router;
