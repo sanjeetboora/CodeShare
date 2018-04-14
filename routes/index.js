@@ -1,4 +1,4 @@
-var express = require('express');
+var express = require('express'); 
 var router = express.Router();
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -18,8 +18,23 @@ router.route('/contact')
 	    });
 	})
 	.post(function(req, res, next) {
-	    res.render('thank', {
+		req.checkBody('name','Empty Name').notEmpty();
+		req.checkBody('email','Invalid Email').isEmail();
+		req.checkBody('message','Empty message').notEmpty();
+		var errors=req.validationErrors();
+		if(errors){
+			res.render('contact',{
+				title: 'Code4Share - a platform for sharing code',
+				name: req.body.name,
+				email: req.body.email,
+				message: req.body.message,
+				errorMessages: errors
+			})
+		}
+		else{
+				    res.render('thank', {
 	        title: 'Code4Share - a platform for sharing code'
-	    });
+	    })
+		}
 	});
 module.exports = router;
