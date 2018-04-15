@@ -30,6 +30,23 @@
                         <a class="nav-link" href="/contact">contact</a>
                     </li>
                 </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    {{#if user}}
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{user.name}} <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/logout">LogOut</a></li>
+                            </ul>
+                        </li>
+                    {{else}}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/register">Register</a>
+                    </li>
+                    {{/if}}
+                </ul>
             </div>
         </nav>
         {{{body}}}

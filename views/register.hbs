@@ -1,16 +1,21 @@
 <form class="form-signin col-md-6 offset-md-3 text-center" method="post">
-      <h1 class="h3 mb-3 font-weight-normal">
-            NEW ACCOUNT
-        </h1>
-        <input type="text" name="name" value="" class="form-control" placeholder="Name" autofocus="" required="">
-        <br/>
-        <input type="email" name="email" value="" class="form-control" placeholder="Email" autofocus="" required="">
-        <br/>
-        <input type="password" name="password" value="" class="form-control" placeholder="password" required="">
-        <br/>
-        <input type="password" name="confirmpassword" value="" class="form-control" placeholder="Confirm password" required="">
-        <br/>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">
-            Sign Up
-        </button>
+    <h1 class="h3 mb-3 font-weight-normal">
+        NEW ACCOUNT
+    </h1>
+    {{#each errorMessages}}
+        <div class="alert alert-danger">
+        {{this.msg}}
+        </div>
+    {{/each}}
+    <input autofocus="" class="form-control" name="name" placeholder="Name" required="" type="text" value="">
+    <br/>
+    <input autofocus="" class="form-control" name="email" placeholder="Email" required="" type="email" value="">
+    <br/>
+    <input class="form-control" name="password" placeholder="password" required="" type="password" value="">
+    <br/>
+    <input class="form-control" name="confirmPassword" placeholder="Confirm password" required="" type="password" value="">
+    <br/>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">
+        Sign Up
+    </button>
 </form>

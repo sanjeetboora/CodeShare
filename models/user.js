@@ -21,4 +21,6 @@ userSchema.methods.validPassword = function(password) {
     var hash = crypto.pbkdf2Sync(password, this.salt, 1000, 64, 'sha1').toString('hex');
     return this.hash === hash;
 }
-module.exports = mongoose.model('User',userSchema);
+
+var User = mongoose.model('User', userSchema);
+module.exports = User;
