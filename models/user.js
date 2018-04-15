@@ -11,7 +11,8 @@ var userSchema = new mongoose.Schema({
         required: true
     },
     hash: String,
-    salt: String
+    salt: String,
+    facebookId: String
 })
 userSchema.methods.setPassword = function(password) {
     this.salt = crypto.randomBytes(16).toString('hex');
